@@ -22,7 +22,6 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
     if (countDownSeconds <= 0) {
       if(playBeepRef.current){
-        console.log("Playing beep sound...");
         playBeepRef.current();
         playBeepRef.current = null;
       }
@@ -49,10 +48,8 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
   useEffect(() => {
     if(state.activeTask && playBeepRef.current === null){
-      console.log("Loading beep sound...");
       playBeepRef.current = loadBeep();
     } else {
-      console.log("Unloading beep sound...");
       playBeepRef.current = null;
     }
   }, [state.activeTask]);
