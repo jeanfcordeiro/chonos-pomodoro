@@ -1,3 +1,4 @@
+//nunca ter coisas que o react não está monitorando no reducer.
 
 import type { TaskStateModel } from '../../models/TaskStateModel';
 import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
@@ -63,6 +64,11 @@ export function taskReducer(
         formattedSecondsRemaining: formatSecondsToMinutes(
           action.payload.secondsRemaining,
         ),
+      };
+    }
+
+    case TaskActionTypes.CHANGE_SETTINGS: {
+      return {...state, config: { ...action.payload },
       };
     }
   }
