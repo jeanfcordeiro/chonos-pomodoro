@@ -9,7 +9,7 @@ export enum TaskActionTypes {
   COUNT_DOWN = 'COUNT_DOWN',
   COMPLETE_TASK = 'COMPLETE_TASK',
   CHANGE_SETTINGS = 'CHANGE_SETTINGS',
-}
+} 
 
 export type TaskActionsWithPayload =
   | {

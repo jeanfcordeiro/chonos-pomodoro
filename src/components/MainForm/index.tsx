@@ -3,7 +3,7 @@ import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
 import { useRef } from 'react';
-import { TaskModel } from '../../models/TaskModel';
+import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
@@ -45,13 +45,12 @@ export function MainForm() {
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
 
-    showMessage.success(`Tarefa "${taskName}" iniciada!`);
-
+    showMessage.success('Tarefa iniciada');
   }
 
   function handleInterruptTask() {
     showMessage.dismiss();
-    showMessage.error(`Tarefa "${state.activeTask?.name}" interrompida!`);
+    showMessage.error('Tarefa interrompida!');
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
   }
 
